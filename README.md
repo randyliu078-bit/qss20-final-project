@@ -25,5 +25,3 @@ Data too large for repo — download links in each notebook.
 
 ## Output
 See `output/` for figures generated from the analysis.
-
-Commit that, then come back and we'll write notebook 1 in Colab.Sonnet 4.6
