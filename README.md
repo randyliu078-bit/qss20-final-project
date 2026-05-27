@@ -3,12 +3,24 @@
 **Course:** QSS 20, Dartmouth College, Spring 2026
 
 ## Project Summary
-This project examines the stock-flow dynamics of college-educated labor in Connecticut 
-relative to Greater Boston (MA) and New York City (NY), using three federal data sources. 
-It tests whether Connecticut remains a net exporter of educated labor (Bound et al. 2004) 
-and whether local college-degree share predicts labor-force participation for non-degree 
-workers (Winters 2013).
+This project builds a merged dataset from three federal sources. The first is the 
+LEHD Post-Secondary Employment Outcomes (PSEO), which tracks earnings and employment 
+for college graduates by institution and field of study. The second is the ACS Public 
+Use Microdata Sample (PUMS), which provides individual-level Census records on 
+education, occupation, and earnings. The third is the BLS Quarterly Census of 
+Employment and Wages (QCEW), which reports county-level employment counts and wages 
+by industry. Together these sources support an analysis of college-educated labor 
+markets in Connecticut relative to Greater Boston (MA) and New York City (NY).
 
+The project addresses two interrelated questions. First, it examines the stock-flow 
+gap: whether Connecticut produces more bachelor's degrees (the flow) than it retains 
+as college-educated residents in its workforce (the stock). A state in this position 
+is considered a net exporter of educated labor. Second, it tests whether places with 
+a higher share of college-degree holders generate positive spillover effects for 
+workers without four-year degrees. These spillovers are measured through labor-force 
+participation and employment rates. Special attention is given to STEM graduates and 
+the aerospace and advanced manufacturing industries, which represent a significant 
+share of Connecticut's regional economy.
 ## Data Sources
 - **PSEO** — LEHD Post-Secondary Employment Outcomes (graduate flow by state)
 - **ACS PUMS** — American Community Survey microdata (resident stock, degree share)
