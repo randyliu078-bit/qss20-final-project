@@ -29,8 +29,11 @@ share of Connecticut's regional economy.
 - **ACS PUMS** — American Community Survey microdata (resident stock, degree share)
 - **QCEW** — BLS Quarterly Census of Employment and Wages (county-level wages)
 
-Data too large for repo — download links in each notebook.
-
+Data is pulled directly from public APIs at runtime. Sources:
+- ACS: https://api.census.gov/data/
+- QCEW: https://data.bls.gov/cew/data/api/
+- PSEO: https://lehd.ces.census.gov/data/pseo/R2024Q4/
+- 
 ## Scripts
 
 | File | Inputs | What it does | Outputs |
