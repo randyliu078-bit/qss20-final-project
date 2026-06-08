@@ -13,8 +13,8 @@
     --slate: #8892b0;
     --light: #ccd6f6;
     --white: #e6f1ff;
-    --accent: #64ffda;
-    --accent2: #f7c948;
+    --accent: #F0A500;
+    --accent2: #F0A500;
     --red: #e06c75;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -27,12 +27,11 @@
     line-height: 1.7;
   }
 
-  /* NAV */
   nav {
     position: fixed; top: 0; width: 100%; z-index: 100;
     background: rgba(10,22,40,0.92);
     backdrop-filter: blur(8px);
-    border-bottom: 1px solid rgba(100,255,218,0.08);
+    border-bottom: 1px solid rgba(240,165,0,0.12);
     display: flex; align-items: center; justify-content: space-between;
     padding: 0 4rem; height: 60px;
   }
@@ -50,7 +49,6 @@
   .nav-links a:hover { color: var(--accent); }
   .nav-num { color: var(--accent); margin-right: 4px; }
 
-  /* HERO */
   #hero {
     min-height: 100vh;
     display: flex; flex-direction: column; justify-content: center;
@@ -59,7 +57,7 @@
     overflow: hidden;
   }
   .hero-grid {
-    position: absolute; inset: 0; opacity: 0.04;
+    position: absolute; inset: 0; opacity: 0.03;
     background-image:
       linear-gradient(var(--accent) 1px, transparent 1px),
       linear-gradient(90deg, var(--accent) 1px, transparent 1px);
@@ -79,23 +77,53 @@
   }
   h1 span { color: var(--accent); }
   .hero-sub {
-    font-size: 1.1rem; color: var(--slate);
-    max-width: 560px; margin-bottom: 2.5rem;
+    font-size: 1.05rem; color: var(--slate);
+    max-width: 580px; margin-bottom: 2.5rem;
+    line-height: 1.8;
   }
+
+  /* STAT BLOCKS */
   .hero-stats {
-    display: flex; gap: 3rem; margin-bottom: 3rem;
+    display: flex; gap: 0; margin-bottom: 3rem;
+    border: 1px solid rgba(240,165,0,0.15);
+    border-radius: 6px; overflow: hidden;
   }
-  .stat-block { display: flex; flex-direction: column; gap: 4px; }
+  .stat-block {
+    flex: 1;
+    display: flex; flex-direction: column;
+    padding: 1.5rem 2rem;
+    border-right: 1px solid rgba(240,165,0,0.1);
+    position: relative;
+  }
+  .stat-block:last-child { border-right: none; }
+  .stat-block.highlight { background: rgba(240,165,0,0.05); }
+  .stat-state {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px; color: var(--slate);
+    letter-spacing: 0.1em; text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
   .stat-num {
     font-family: 'Playfair Display', serif;
-    font-size: 2.2rem; font-weight: 700;
-    color: var(--accent2);
+    font-size: 2.6rem; font-weight: 700;
+    color: var(--accent);
+    line-height: 1; margin-bottom: 0.4rem;
   }
-  .stat-num.red { color: var(--red); }
-  .stat-label {
+  .stat-num.lower { color: var(--red); }
+  .stat-context {
+    font-size: 0.78rem; color: var(--slate);
+    line-height: 1.5; max-width: 180px;
+  }
+  .stat-rq-tag {
     font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px; color: var(--slate); letter-spacing: 0.06em;
+    font-size: 9px; color: var(--accent);
+    background: rgba(240,165,0,0.1);
+    border: 1px solid rgba(240,165,0,0.2);
+    padding: 2px 6px; border-radius: 2px;
+    display: inline-block; margin-bottom: 0.6rem;
+    letter-spacing: 0.06em;
   }
+
   .hero-rqs {
     display: flex; flex-direction: column; gap: 0.75rem;
   }
@@ -106,16 +134,15 @@
   .rq-num {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 11px; color: var(--accent);
-    background: rgba(100,255,218,0.08);
-    border: 1px solid rgba(100,255,218,0.2);
+    background: rgba(240,165,0,0.08);
+    border: 1px solid rgba(240,165,0,0.2);
     padding: 2px 8px; border-radius: 3px;
     white-space: nowrap; margin-top: 2px;
   }
 
-  /* SECTIONS */
   section {
     padding: 6rem 8rem;
-    border-top: 1px solid rgba(100,255,218,0.06);
+    border-top: 1px solid rgba(240,165,0,0.06);
   }
   .section-tag {
     font-family: 'IBM Plex Mono', monospace;
@@ -126,7 +153,7 @@
   .section-tag::after {
     content: ''; display: block;
     width: 60px; height: 1px;
-    background: rgba(100,255,218,0.3);
+    background: rgba(240,165,0,0.3);
   }
   h2 {
     font-family: 'Playfair Display', serif;
@@ -135,11 +162,11 @@
     margin-bottom: 1rem;
   }
   .section-desc {
-    color: var(--slate); max-width: 600px;
+    color: var(--slate); max-width: 640px;
     margin-bottom: 3rem; font-size: 0.95rem;
+    line-height: 1.8;
   }
 
-  /* DATA CARDS */
   .data-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -147,18 +174,18 @@
   }
   .data-card {
     background: var(--navy2);
-    border: 1px solid rgba(100,255,218,0.1);
+    border: 1px solid rgba(240,165,0,0.1);
     border-radius: 4px; padding: 1.5rem;
     transition: border-color 0.2s, transform 0.2s;
   }
   .data-card:hover {
-    border-color: rgba(100,255,218,0.3);
+    border-color: rgba(240,165,0,0.3);
     transform: translateY(-2px);
   }
   .data-card-icon {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 11px; color: var(--accent);
-    background: rgba(100,255,218,0.08);
+    background: rgba(240,165,0,0.08);
     display: inline-block; padding: 3px 8px;
     border-radius: 2px; margin-bottom: 0.75rem;
   }
@@ -167,28 +194,24 @@
     color: var(--white); margin-bottom: 0.5rem;
   }
   .data-card p {
-    font-size: 0.85rem; color: var(--slate); line-height: 1.6;
+    font-size: 0.85rem; color: var(--slate); line-height: 1.7;
   }
   .data-card .limitation {
     margin-top: 0.75rem; padding-top: 0.75rem;
-    border-top: 1px solid rgba(100,255,218,0.06);
+    border-top: 1px solid rgba(240,165,0,0.06);
     font-size: 0.8rem; color: rgba(138,148,176,0.7);
   }
 
-  /* METHOD STEPS */
-  .method-steps {
-    display: flex; flex-direction: column; gap: 0;
-    position: relative;
-  }
+  .method-steps { display: flex; flex-direction: column; }
   .method-step {
     display: grid; grid-template-columns: 80px 1fr;
     gap: 1.5rem; padding: 1.5rem 0;
-    border-bottom: 1px solid rgba(100,255,218,0.06);
+    border-bottom: 1px solid rgba(240,165,0,0.06);
   }
   .step-num {
     font-family: 'Playfair Display', serif;
     font-size: 2.5rem; font-weight: 700;
-    color: rgba(100,255,218,0.15);
+    color: rgba(240,165,0,0.15);
     line-height: 1;
   }
   .step-content h3 {
@@ -196,19 +219,16 @@
     color: var(--white); margin-bottom: 0.4rem;
   }
   .step-content p {
-    font-size: 0.9rem; color: var(--slate);
+    font-size: 0.9rem; color: var(--slate); line-height: 1.7;
   }
   .step-content code {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.8rem; color: var(--accent);
-    background: rgba(100,255,218,0.07);
+    background: rgba(240,165,0,0.07);
     padding: 1px 5px; border-radius: 2px;
   }
 
-  /* FIGURES */
-  .fig-block {
-    margin-bottom: 4rem;
-  }
+  .fig-block { margin-bottom: 4rem; }
   .fig-label {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 11px; color: var(--accent);
@@ -220,14 +240,13 @@
   }
   .fig-finding {
     font-size: 0.9rem; color: var(--slate);
-    margin-bottom: 1rem; max-width: 640px;
+    margin-bottom: 1rem; max-width: 680px;
+    line-height: 1.7;
   }
-  .fig-finding strong {
-    color: var(--accent2); font-weight: 500;
-  }
+  .fig-finding strong { color: #F0C060; font-weight: 500; }
   .fig-img {
     width: 100%;
-    border: 1px solid rgba(100,255,218,0.1);
+    border: 1px solid rgba(240,165,0,0.1);
     border-radius: 4px;
     background: #fff;
   }
@@ -236,16 +255,13 @@
     font-size: 0.78rem; color: rgba(138,148,176,0.6);
     font-style: italic;
   }
-
-  /* TWO-COL FIGS */
   .fig-two-col {
     display: grid; grid-template-columns: 1fr 1fr;
     gap: 2rem; margin-bottom: 4rem;
   }
 
-  /* FINDINGS CALLOUT */
   .finding-callout {
-    background: rgba(100,255,218,0.04);
+    background: rgba(240,165,0,0.04);
     border-left: 3px solid var(--accent);
     padding: 1.25rem 1.5rem;
     margin: 2rem 0;
@@ -254,14 +270,22 @@
   .finding-callout p {
     font-size: 1rem; color: var(--light); line-height: 1.7;
   }
-  .finding-callout strong { color: var(--accent2); font-weight: 500; }
-
+  .finding-callout strong { color: #F0C060; font-weight: 500; }
   .finding-callout.warn {
-    border-left-color: var(--accent2);
-    background: rgba(247,201,72,0.04);
+    border-left-color: rgba(240,165,0,0.6);
+    background: rgba(240,165,0,0.03);
   }
 
-  /* TAKEAWAY */
+  .corr-badge {
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px; color: var(--accent);
+    background: rgba(240,165,0,0.1);
+    border: 1px solid rgba(240,165,0,0.3);
+    padding: 2px 7px; border-radius: 2px;
+    margin-left: 8px; vertical-align: middle;
+  }
+
   #takeaway { background: var(--navy2); }
   .takeaway-grid {
     display: grid; grid-template-columns: 1fr 1fr;
@@ -269,7 +293,7 @@
   }
   .takeaway-card {
     background: var(--navy);
-    border: 1px solid rgba(100,255,218,0.1);
+    border: 1px solid rgba(240,165,0,0.1);
     border-radius: 4px; padding: 1.5rem;
   }
   .takeaway-card h3 {
@@ -279,40 +303,27 @@
     letter-spacing: 0.05em;
   }
   .takeaway-card p {
-    font-size: 0.9rem; color: var(--slate); line-height: 1.7;
+    font-size: 0.9rem; color: var(--slate); line-height: 1.75;
   }
 
-  /* FOOTER */
   footer {
     padding: 2rem 8rem;
-    border-top: 1px solid rgba(100,255,218,0.06);
+    border-top: 1px solid rgba(240,165,0,0.06);
     display: flex; justify-content: space-between; align-items: center;
   }
   footer p {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 11px; color: var(--slate);
   }
-  footer a {
-    color: var(--accent); text-decoration: none;
-  }
+  footer a { color: var(--accent); text-decoration: none; }
   footer a:hover { text-decoration: underline; }
-
-  /* CORR BADGE */
-  .corr-badge {
-    display: inline-block;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px; color: var(--accent2);
-    background: rgba(247,201,72,0.1);
-    border: 1px solid rgba(247,201,72,0.3);
-    padding: 2px 7px; border-radius: 2px;
-    margin-left: 8px; vertical-align: middle;
-  }
 
   @media (max-width: 900px) {
     nav { padding: 0 1.5rem; }
     .nav-links { display: none; }
     #hero, section, footer { padding-left: 1.5rem; padding-right: 1.5rem; }
-    .hero-stats { flex-wrap: wrap; gap: 1.5rem; }
+    .hero-stats { flex-direction: column; }
+    .stat-block { border-right: none; border-bottom: 1px solid rgba(240,165,0,0.1); }
     .data-grid { grid-template-columns: 1fr; }
     .fig-two-col { grid-template-columns: 1fr; }
     .takeaway-grid { grid-template-columns: 1fr; }
@@ -332,190 +343,182 @@
   </div>
 </nav>
 
-<!-- HERO -->
 <section id="hero" style="border-top: none;">
   <div class="hero-grid"></div>
   <div style="position: relative;">
     <p class="hero-tag">QSS 20 &nbsp;·&nbsp; Randy Liu &nbsp;·&nbsp; Dartmouth College &nbsp;·&nbsp; 2026</p>
     <h1>Stock-Flow Dynamics of<br><span>College-Educated Labor</span><br>in Connecticut</h1>
-    <p class="hero-sub">Does Connecticut export its college graduates to Boston and New York — and do local degree-holders raise wages for everyone else?</p>
+    <p class="hero-sub">Connecticut sits between two of the largest labor markets in the country. Does it keep its college graduates — or does it train talent for Boston and New York? And do the graduates who stay raise wages for workers without degrees?</p>
 
     <div class="hero-stats">
-      <div class="stat-block">
-        <span class="stat-num red">68%</span>
-        <span class="stat-label">CT grads stay at 1 year</span>
+      <div class="stat-block highlight">
+        <span class="stat-rq-tag">Research Question 1</span>
+        <span class="stat-state">Connecticut</span>
+        <span class="stat-num lower">68%</span>
+        <span class="stat-context">of bachelor's graduates remain employed in-state one year after graduation — the lowest of the three states studied</span>
       </div>
       <div class="stat-block">
+        <span class="stat-rq-tag">Research Question 1</span>
+        <span class="stat-state">Massachusetts</span>
         <span class="stat-num">80%</span>
-        <span class="stat-label">MA grads stay at 1 year</span>
+        <span class="stat-context">retention rate at one year, sustained by the pull of the Greater Boston labor market and its concentration of research institutions</span>
       </div>
       <div class="stat-block">
+        <span class="stat-rq-tag">Research Question 1</span>
+        <span class="stat-state">New York</span>
         <span class="stat-num">85%</span>
-        <span class="stat-label">NY grads stay at 1 year</span>
-      </div>
-      <div class="stat-block">
-        <span class="stat-num" style="color: var(--accent);">$32</span>
-        <span class="stat-label">wage gain per % degree share</span>
+        <span class="stat-context">retention rate at one year, driven by the depth and diversity of the New York City economy attracting graduates statewide</span>
       </div>
     </div>
 
     <div class="hero-rqs">
       <div class="rq">
-        <span class="rq-num">RQ 1</span>
+        <span class="rq-num">Research Question 1</span>
         <span>Is Connecticut a net exporter of college-educated labor relative to Massachusetts and New York? <em style="color:var(--slate)">(Bound et al., 2004)</em></span>
       </div>
       <div class="rq">
-        <span class="rq-num">RQ 2</span>
+        <span class="rq-num">Research Question 2</span>
         <span>Does local college-degree concentration improve wages for non-degree workers in CT? <em style="color:var(--slate)">(Winters, 2013)</em></span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- DATA -->
 <section id="data">
   <p class="section-tag">02. data sources</p>
   <h2>Three federal datasets, linked</h2>
-  <p class="section-desc">All data pulled via public APIs — Census, LEHD, and BLS — covering 2022 cross-sections and PSEO cohorts from 2001–2019.</p>
+  <p class="section-desc">All data pulled via public APIs — no manual downloads. The analysis combines graduate-level employment tracking from PSEO, census-based degree attainment from ACS, and employer-reported wage data from QCEW, covering 2022 cross-sections and PSEO cohorts from 2001–2019. Each source captures a different dimension of Connecticut's college labor market.</p>
 
   <div class="data-grid">
     <div class="data-card">
       <span class="data-card-icon">PSEO</span>
       <h3>Post-Secondary Employment Outcomes</h3>
-      <p>Links IPEDS graduation records to Unemployment Insurance earnings. Tracks where graduates work at 1, 5, and 10 years post-graduation. R2024Q4 release, cohorts 2001–2019.</p>
-      <p class="limitation">⚠ Undercounts federal employees and graduates who move to non-participating states. Cell suppression for small cohorts.</p>
+      <p>Produced by the Census Bureau's LEHD program, PSEO links IPEDS graduation records to Unemployment Insurance earnings records to track where graduates actually work — and how much they earn — at 1, 5, and 10 years post-graduation. This is the core dataset for Research Question 1. R2024Q4 release, cohorts 2001–2019.</p>
+      <p class="limitation">⚠ Undercounts federal employees and graduates who move to non-participating states. Cell suppression for small cohorts. MA and NY have shorter time series than CT.</p>
     </div>
     <div class="data-card">
       <span class="data-card-icon">ACS</span>
       <h3>American Community Survey</h3>
-      <p>2022 one-year estimates for state-level degree attainment (S1501) and labor force participation (S2301). Five-year estimates for county-level analysis to avoid suppression.</p>
-      <p class="limitation">⚠ One-year ACS suppresses cells coded as −888,888,888 — affects 25–29 age group and several PUMA observations. Cross-sectional only.</p>
+      <p>The Census Bureau's primary household survey. We use 2022 one-year estimates for state-level degree attainment (S1501) and labor force participation by education level (S2301) for CT, MA, and NY. Five-year estimates are used for county-level analysis to avoid suppression of small-county cells. This provides the degree-share variable central to Research Question 2.</p>
+      <p class="limitation">⚠ One-year ACS suppresses cells coded as −888,888,888 — affects 25–29 age group and several PUMA observations. Cross-sectional; cannot track individuals over time.</p>
     </div>
     <div class="data-card">
       <span class="data-card-icon">QCEW</span>
       <h3>Quarterly Census of Employment and Wages</h3>
-      <p>BLS county-level annual averages for all 8 CT counties. Average weekly wages at aggregate level code 70 (all ownerships). Used for county-level spillover analysis.</p>
-      <p class="limitation">⚠ Captures economy-wide wages, not specifically non-degree workers. Suppresses cells that would identify individual employers.</p>
+      <p>BLS program covering nearly all U.S. employers. We pull 2022 annual averages for all 8 Connecticut counties at aggregate level code 70 (all ownerships, all industries). Average weekly wages serve as the outcome variable in the county-level spillover analysis for Research Question 2.</p>
+      <p class="limitation">⚠ Captures economy-wide wages regardless of workers' education level — not specifically non-degree workers. Suppresses cells that would identify individual employers in small counties.</p>
     </div>
   </div>
 </section>
 
-<!-- METHODS -->
 <section id="methods">
   <p class="section-tag">03. methods</p>
   <h2>How we answered the questions</h2>
-  <p class="section-desc">All processing in Python (pandas). Three sequentially numbered notebooks: <code style="font-family: 'IBM Plex Mono', monospace; font-size:0.85rem; color:var(--accent); background:rgba(100,255,218,0.07); padding:1px 5px; border-radius:2px;">01_data_pull</code> → <code style="font-family: 'IBM Plex Mono', monospace; font-size:0.85rem; color:var(--accent); background:rgba(100,255,218,0.07); padding:1px 5px; border-radius:2px;">02_clean</code> → <code style="font-family: 'IBM Plex Mono', monospace; font-size:0.85rem; color:var(--accent); background:rgba(100,255,218,0.07); padding:1px 5px; border-radius:2px;">03_analysis</code>.</p>
+  <p class="section-desc">All processing in Python (pandas), organized across three sequentially numbered notebooks: <code style="font-family:'IBM Plex Mono',monospace;font-size:0.85rem;color:var(--accent);background:rgba(240,165,0,0.07);padding:1px 5px;border-radius:2px;">01_data_pull</code> → <code style="font-family:'IBM Plex Mono',monospace;font-size:0.85rem;color:var(--accent);background:rgba(240,165,0,0.07);padding:1px 5px;border-radius:2px;">02_clean</code> → <code style="font-family:'IBM Plex Mono',monospace;font-size:0.85rem;color:var(--accent);background:rgba(240,165,0,0.07);padding:1px 5px;border-radius:2px;">03_analysis</code>. Each notebook corresponds to a single defined task. The two research questions required different analytical approaches — one using longitudinal flow data, one using a cross-sectional regression.</p>
 
   <div class="method-steps">
     <div class="method-step">
       <div class="step-num">01</div>
       <div class="step-content">
-        <h3>Graduate retention rate (RQ 1)</h3>
-        <p>From the PSEO flows file, compute <code>r_t = grads_emp_instate_t / grads_emp_t</code> for t ∈ {1, 5, 10} years. Compare CT, MA, and NY at each time horizon. A lower retention rate means more graduates are leaving the state for work.</p>
+        <h3>Graduate retention rate — Research Question 1</h3>
+        <p>From the PSEO flows file, we compute <code>r_t = grads_emp_instate_t / grads_emp_t</code> for t ∈ {1, 5, 10} years for CT, MA, and NY. This directly measures the share of employed graduates working in their home state at each time horizon — a more granular measure of labor flow than prior work using decennial Census data. A declining retention rate over time is consistent with graduates using Connecticut as a stepping stone before migrating to larger metro areas.</p>
       </div>
     </div>
     <div class="method-step">
       <div class="step-num">02</div>
       <div class="step-content">
-        <h3>County-level OLS (RQ 2)</h3>
-        <p>Inner join QCEW county wages with ACS five-year degree-share estimates on county name (exact match, all 8 CT counties). Estimate <code>wage_c = α + β · DegreeShare_c + ε</code>. All results are correlational — no causal claim.</p>
+        <h3>County-level OLS regression — Research Question 2</h3>
+        <p>We perform an inner join on county name (exact string match) merging QCEW average weekly wages with ACS five-year college-degree share estimates for all 8 CT counties. We then estimate <code>wage_c = α + β · DegreeShare_c + ε</code> via OLS. The slope β captures the correlation between local degree concentration and economy-wide wages. All 8 counties match successfully with no missing values post-merge.</p>
       </div>
     </div>
     <div class="method-step">
       <div class="step-num">03</div>
       <div class="step-content">
-        <h3>Causal identification note</h3>
-        <p>Causal identification of the spillover effect would require an instrument for degree concentration or a quasi-experimental design with exogenous variation in local degree share. No such strategy is available here — findings are descriptive.</p>
+        <h3>Causal identification — what this analysis can and cannot claim</h3>
+        <p>Neither analysis supports causal claims. The retention rate comparison is descriptive — it documents a gap but cannot explain why graduates leave. The county OLS does not control for confounders like proximity to NYC, industry mix, or population density. With n = 8 counties the model is substantially underpowered. Causal identification of the spillover effect would require an instrument for degree concentration or a quasi-experimental design; no such strategy is available in this cross-sectional data.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- RESULTS -->
 <section id="results">
   <p class="section-tag">04. results</p>
   <h2>What the data shows</h2>
-  <p class="section-desc">Five figures, two research questions answered.</p>
+  <p class="section-desc">Five figures addressing both research questions. Figures 1–4 address Research Question 1 by characterizing the degree attainment landscape and graduate retention gap. Figure 5 addresses Research Question 2 with the county-level wage spillover analysis.</p>
 
-  <!-- Fig 1 -->
   <div class="fig-block">
     <p class="fig-label">Figure 1 &nbsp;·&nbsp; ACS 2022</p>
     <p class="fig-title">Degree attainment by age group — CT, MA, NY</p>
-    <p class="fig-finding">CT and MA track closely across age groups. NY lags in younger cohorts, likely reflecting NYC's large immigrant population. The <strong>45–54 peak</strong> is consistent across all three states from the 1980s–90s higher-ed expansion. Note the 25–29 group is suppressed in all three states.</p>
+    <p class="fig-finding">CT and MA show nearly identical attainment profiles across all age groups, while NY lags in younger cohorts — likely reflecting the composition effects of NYC's large immigrant population. The <strong>45–54 peak</strong> is consistent across all three states, reflecting the cohort that benefited from the 1980s–90s expansion of higher education. The 25–29 group is suppressed in ACS one-year estimates for all three states and shows as missing.</p>
     <img class="fig-img" src="https://raw.githubusercontent.com/randyliu078-bit/qss20-final-project/main/output/fig1_degree_attainment.png" alt="Degree attainment by age group for CT, MA, NY" />
-    <p class="fig-caption">Source: ACS 2022 one-year estimates, Subject Table S1501.</p>
+    <p class="fig-caption">Source: ACS 2022 one-year estimates, Subject Table S1501. 25–29 age group suppressed due to small sample size.</p>
   </div>
 
-  <!-- Fig 2 + 3 -->
   <div class="fig-two-col">
     <div class="fig-block" style="margin-bottom:0">
       <p class="fig-label">Figure 2 &nbsp;·&nbsp; PSEO 2024</p>
       <p class="fig-title">Graduate production over time</p>
-      <p class="fig-finding">NY dwarfs CT and MA in raw graduate production. CT grew from ~15k to ~25k per cohort 2001–2016.</p>
+      <p class="fig-finding">NY produces far more graduates annually than CT or MA, reflecting its larger population and higher density of research universities. CT grew steadily from roughly 15,000 graduates per cohort in 2001 to over 25,000 by 2016, before a post-2016 plateau. The gap in production scale means CT competes against much larger talent pools in neighboring states.</p>
       <img class="fig-img" src="https://raw.githubusercontent.com/randyliu078-bit/qss20-final-project/main/output/fig4_flow_comparison.png" alt="Graduate production over time" />
     </div>
     <div class="fig-block" style="margin-bottom:0">
-      <p class="fig-label">Figure 3 &nbsp;·&nbsp; PSEO 2024</p>
-      <p class="fig-title">LFP by education level</p>
-      <p class="fig-finding">LFP rises monotonically with education in all three states. CT outperforms NY for workers without a high school diploma (36.5% vs. 27.3%).</p>
+      <p class="fig-label">Figure 3 &nbsp;·&nbsp; ACS 2022</p>
+      <p class="fig-title">Labor force participation by education level</p>
+      <p class="fig-finding">LFP rises monotonically with education in all three states — a pattern consistent with human capital theory. CT and MA track closely at every education level. Notably, CT outperforms NY for workers without a high school diploma (36.5% vs. 27.3%), suggesting a tighter low-skill labor market that may reflect the relative absence of large urban informal economies.</p>
       <img class="fig-img" src="https://raw.githubusercontent.com/randyliu078-bit/qss20-final-project/main/output/fig3_lfp_by_education.png" alt="LFP by education level" />
     </div>
   </div>
 
-  <!-- FINDING 1 callout -->
   <div class="finding-callout">
-    <p><strong>Key finding — RQ 1:</strong> The figure below shows CT retains only <strong>68.3%</strong> of bachelor's graduates at one year — compared to 79.6% for MA and 85.2% for NY. The gap <em>widens</em> over time, suggesting graduates take CT jobs first, then migrate to Boston and NYC as their careers develop.</p>
+    <p><strong>Key finding — Research Question 1:</strong> CT retains only <strong>68.3%</strong> of bachelor's graduates at one year — compared to 79.6% for MA and 85.2% for NY. Critically, the gap <em>widens</em> at 5 and 10 years, suggesting this is not just new graduates exploring options but a structural pattern of mid-career migration toward Boston and NYC as careers develop.</p>
   </div>
 
-  <!-- Fig 4 — RETENTION — big -->
   <div class="fig-block">
     <p class="fig-label">Figure 4 &nbsp;·&nbsp; PSEO flows file 2024 &nbsp;·&nbsp; Central finding</p>
     <p class="fig-title">Graduate retention rates at 1, 5, and 10 years post-graduation</p>
+    <p class="fig-finding">This is the central figure of the analysis. At every time horizon CT retains the smallest share of its graduates. The three-bar cluster pattern reveals that MA and NY both show modest decline from year 1 to year 10, while <strong>CT's decline is steeper</strong> — the retention gap between CT and NY grows from 17 percentage points at year 1 to 14 points at year 10, with the absolute CT rate falling from 68% to 60%.</p>
     <img class="fig-img" src="https://raw.githubusercontent.com/randyliu078-bit/qss20-final-project/main/output/fig5_retention_rates.png" alt="Graduate retention rates" />
-    <p class="fig-caption">CT retains 68% at 1 year vs. 80% (MA) and 85% (NY). Gap widens to 60% vs. 70% vs. 75% at 10 years. Source: PSEO flows file, R2024Q4.</p>
+    <p class="fig-caption">CT retains 68% at 1 year vs. 80% (MA) and 85% (NY). Gap widens at 5 and 10 years. Source: PSEO flows file, R2024Q4.</p>
   </div>
 
-  <!-- FINDING 2 callout -->
   <div class="finding-callout warn">
-    <p><strong>Key finding — RQ 2:</strong> A 1 pp increase in county degree share is associated with <strong>$32 higher average weekly wages</strong> (β = 32.27, R² = 0.63, p = 0.018). <span class="corr-badge">correlational</span> — Fairfield County's proximity to NYC is a likely confounder. Effect disappears in manufacturing-only wages (R² = 0.16, p = 0.33), suggesting service-sector spillovers drive the pattern.</p>
+    <p><strong>Key finding — Research Question 2:</strong> A 1 percentage point increase in county college-degree share is associated with <strong>$32 higher average weekly wages</strong> (β = 32.27, R² = 0.63, p = 0.018). <span class="corr-badge">correlational</span> This is consistent with Winters (2013)'s human capital externality hypothesis. However, Fairfield County's proximity to NYC is a likely confounder. When restricted to manufacturing wages only, the relationship disappears (R² = 0.16, p = 0.33), suggesting the spillover operates through service-sector employment rather than production-floor knowledge transfers.</p>
   </div>
 
-  <!-- Fig 5 — COUNTY WAGES -->
   <div class="fig-block">
     <p class="fig-label">Figure 5 &nbsp;·&nbsp; QCEW + ACS 2022 &nbsp;·&nbsp; n = 8 counties</p>
     <p class="fig-title">College-degree concentration vs. average weekly wages — CT counties</p>
+    <p class="fig-finding">Fairfield County sits at the top right — 51.2% degree share and $2,015 average weekly wage — while Windham sits at the bottom left at 24.3% and $1,027. The regression line fits well overall (R² = 0.63) but Fairfield is a clear outlier whose NYC-adjacent location independently inflates both variables. The relationship is real but the mechanism is unidentified from this data alone.</p>
     <img class="fig-img" src="https://raw.githubusercontent.com/randyliu078-bit/qss20-final-project/main/output/fig7_county_wages_scatter.png" alt="County wages scatter" />
-    <p class="fig-caption">Fairfield (51.2% degree share, $2,015/wk) vs. Windham (24.3%, $1,027/wk). Relationship is correlational — no causal claim. Source: ACS 5-year 2022; QCEW 2022 annual.</p>
+    <p class="fig-caption">Higher degree-share counties are associated with higher wages. Relationship is correlational; Fairfield County (top right) is a likely NYC-proximity outlier. Source: ACS 5-year 2022; QCEW 2022 annual.</p>
   </div>
 </section>
 
-<!-- TAKEAWAY -->
 <section id="takeaway">
   <p class="section-tag">05. takeaway</p>
   <h2>What this means for Connecticut</h2>
-  <p class="section-desc">Two findings, clearly scoped — one strong, one suggestive.</p>
+  <p class="section-desc">Two findings, clearly scoped — one strong and well-identified, one suggestive and requiring further work. Together they paint a picture of a state that produces college-educated labor it struggles to retain, while the graduates who do stay appear to generate positive wage effects for the broader workforce.</p>
 
   <div class="takeaway-grid">
     <div class="takeaway-card">
-      <h3>RQ 1 — Graduate retention</h3>
-      <p>Connecticut retains substantially fewer of its bachelor's graduates than MA or NY at every time horizon, and the gap grows over a decade. This updates Bound et al. (2004) using direct PSEO flow data unavailable to prior work. CT faces a structural challenge competing with Boston and NYC labor markets for its own graduates.</p>
+      <h3>Research Question 1 — Graduate retention</h3>
+      <p>Connecticut retains substantially fewer of its bachelor's graduates than MA or NY at every time horizon, and the gap grows over a decade. Using PSEO flow data unavailable to Bound et al. (2004), this analysis provides direct evidence that CT graduates disproportionately migrate to Boston and NYC as their careers develop — not just immediately after graduation. This represents a persistent structural challenge for Connecticut's workforce policy and educational investment calculus.</p>
     </div>
     <div class="takeaway-card">
-      <h3>RQ 2 — Spillover wages</h3>
-      <p>County-level evidence is consistent with Winters (2013): higher degree concentration correlates with higher wages. But with only 8 observations and Fairfield County as a NYC-proximity outlier, the causal mechanism is unidentified. The effect is absent in manufacturing wages, pointing to service-sector channels.</p>
+      <h3>Research Question 2 — Spillover wages</h3>
+      <p>County-level evidence is consistent with Winters (2013): counties with higher college-degree concentration are associated with higher wages across all workers. The $32 per percentage point wage gain is economically meaningful, but the analysis is limited by n = 8 observations and the Fairfield County outlier. The effect disappears entirely for manufacturing wages, pointing to service-sector knowledge spillovers as the more likely mechanism than direct production-floor transfers.</p>
     </div>
     <div class="takeaway-card">
       <h3>Limitations</h3>
-      <p>PSEO undercounts federal-employment graduates. ACS is cross-sectional. County OLS has n = 8 with no controls. PUMA-level LFP analysis showed no statistically significant relationship (p = 0.23), suggesting spillovers operate at finer or different geographic scales than PUMAs capture.</p>
+      <p>PSEO undercounts graduates entering federal employment or moving to non-participating states. ACS is cross-sectional and cannot establish causal ordering. The county OLS has only 8 observations and no controls for confounders. A PUMA-level LFP analysis showed no statistically significant relationship (p = 0.23), suggesting spillover effects may operate at finer geographic scales or require individual-level controls to detect.</p>
     </div>
     <div class="takeaway-card">
       <h3>Future work</h3>
-      <p>Individual-level ACS microdata with metro-area fixed effects would better isolate the spillover channel. Extending the retention analysis to specific industries (aerospace, finance) would reveal which sectors CT loses graduates to — and whether targeted policy could change that.</p>
+      <p>Individual-level ACS microdata with metropolitan-area fixed effects would better isolate the human capital externality mechanism. Extending the PSEO retention analysis to specific industries — particularly aerospace, defense, and financial services, which define CT's regional economy — would reveal which sectors are most exposed to graduate outmigration and whether targeted workforce or tax policy could meaningfully change the retention trajectory.</p>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <p>Randy Liu &nbsp;·&nbsp; QSS 20, Dartmouth College &nbsp;·&nbsp; Spring 2026</p>
   <p>
