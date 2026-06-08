@@ -1,5 +1,5 @@
 # AI Transcripts
 
-This folder contains the fullt transcripts of Claude (Anthropic) coding sessions 
+This folder contains the full transcripts of Claude (Anthropic) coding sessions 
 used for this project.
 
