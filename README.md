@@ -35,9 +35,9 @@ Data too large for repo — download links in each notebook.
 
 | File | Inputs | What it does | Outputs |
 |------|--------|--------------|---------|
-| `code/01_data_pull.ipynb` | Census API key, PSEO LEHD URLs, BLS QCEW API | Downloads raw ACS, PSEO flows/earnings files, and QCEW county files for CT, MA, NY | Raw CSVs |
-| `code/02_clean.ipynb` | Raw CSVs from data pull | Cleans and preps all three datasets; drops suppressed cells; constructs retention rate and wage variables | Cleaned dataframes used in analysis |
-| `code/03_analysis.ipynb` | Cleaned dataframes, Census API key | Produces all figures; computes retention rates, OLS regression, PUMA scatter | Figure PNGs saved to `output/` |
+| [`code/01_data_pull.ipynb`](code/01_data_pull.ipynb) | Census API key, PSEO LEHD URLs, BLS QCEW API | Downloads raw ACS, PSEO flows/earnings files, and QCEW county files for CT, MA, NY | Raw CSVs |
+| [`code/02_clean.ipynb`](code/02_clean.ipynb) | Raw CSVs from data pull | Cleans and preps all three datasets; drops suppressed cells; constructs retention rate and wage variables | Cleaned dataframes used in analysis |
+| [`code/03_analysis.ipynb`](code/03_analysis.ipynb) | Cleaned dataframes, Census API key | Produces all figures; computes retention rates, OLS regression, PUMA scatter | Figure PNGs saved to `output/` |
 
 ## Output
 See `output/` for figures generated from the analysis.
