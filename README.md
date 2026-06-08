@@ -20,8 +20,7 @@ gap: whether Connecticut produces more bachelor's degrees (the flow) than it ret
 as college-educated residents in its workforce (the stock). A state in this position 
 is considered a net exporter of educated labor. Second, it tests whether places with 
 a higher share of college-degree holders generate positive spillover effects for 
-workers without four-year degrees. These spillovers are measured through labor-force 
-participation and employment rates. Special attention is given to STEM graduates and 
+workers without four-year degrees. These spillovers are measured through average weekly wages at the county level, using QCEW wage data merged with ACS degree-share estimates. Special attention is given to STEM graduates and 
 the aerospace and advanced manufacturing industries, which represent a significant 
 share of Connecticut's regional economy.
 ## Data Sources
