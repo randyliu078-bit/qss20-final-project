@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Connecticut Brain Drain — QSS 20 Final Project</title>
+<title>Connecticut Brain Drain QSS 20 Final Project</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -348,25 +348,22 @@
   <div style="position: relative;">
     <p class="hero-tag">QSS 20 &nbsp;·&nbsp; Randy Liu &nbsp;·&nbsp; Dartmouth College &nbsp;·&nbsp; 2026</p>
     <h1>Stock-Flow Dynamics of<br><span>College-Educated Labor</span><br>in Connecticut</h1>
-    <p class="hero-sub">Connecticut sits between two of the largest labor markets in the country. Does it keep its college graduates — or does it train talent for Boston and New York? And do the graduates who stay raise wages for workers without degrees?</p>
+    <p class="hero-sub">Connecticut sits between two of the largest labor markets in the country. Does it keep its college graduates, or does it train talent for Boston and New York? And do the graduates who stay raise wages for workers without degrees?</p>
 
     <div class="hero-stats">
       <div class="stat-block highlight">
-        <span class="stat-rq-tag">Research Question 1</span>
         <span class="stat-state">Connecticut</span>
         <span class="stat-num lower">68%</span>
-        <span class="stat-context">of bachelor's graduates remain employed in-state one year after graduation — the lowest of the three states studied</span>
+        <span class="stat-context">of bachelor's graduates remain employed in-state one year after graduation, the lowest of the three states studied</span>
       </div>
       <div class="stat-block">
-        <span class="stat-rq-tag">Research Question 1</span>
         <span class="stat-state">Massachusetts</span>
         <span class="stat-num">80%</span>
         <span class="stat-context">retention rate at one year, sustained by the pull of the Greater Boston labor market and its concentration of research institutions</span>
       </div>
       <div class="stat-block">
-        <span class="stat-rq-tag">Research Question 1</span>
         <span class="stat-state">New York</span>
-        <span class="stat-num">85%</span>
+        <span class="stat-num" style="color:#7ec8e3;">85%</span>
         <span class="stat-context">retention rate at one year, driven by the depth and diversity of the New York City economy attracting graduates statewide</span>
       </div>
     </div>
@@ -386,27 +383,27 @@
 
 <section id="data">
   <p class="section-tag">02. data sources</p>
-  <h2>Three federal datasets, linked</h2>
-  <p class="section-desc">All data pulled via public APIs — no manual downloads. The analysis combines graduate-level employment tracking from PSEO, census-based degree attainment from ACS, and employer-reported wage data from QCEW, covering 2022 cross-sections and PSEO cohorts from 2001–2019. Each source captures a different dimension of Connecticut's college labor market.</p>
+  <h2>Three federal datasets</h2>
+  <p class="section-desc">The analysis combines graduate-level employment tracking from PSEO, census-based degree attainment from ACS, and employer-reported wage data from QCEW, covering 2022 cross-sections and PSEO cohorts from 2001 through 2019. Each source captures a different dimension of Connecticut's college labor market.</p>
 
   <div class="data-grid">
     <div class="data-card">
       <span class="data-card-icon">PSEO</span>
       <h3>Post-Secondary Employment Outcomes</h3>
-      <p>Produced by the Census Bureau's LEHD program, PSEO links IPEDS graduation records to Unemployment Insurance earnings records to track where graduates actually work — and how much they earn — at 1, 5, and 10 years post-graduation. This is the core dataset for Research Question 1. R2024Q4 release, cohorts 2001–2019.</p>
+      <p>Produced by the Census Bureau's LEHD program, PSEO links IPEDS graduation records to Unemployment Insurance earnings records to track where graduates actually work and how much they earn at 1, 5, and 10 years post-graduation. This is the core dataset for Research Question 1. R2024Q4 release, cohorts 2001–2019.</p>
       <p class="limitation">⚠ Undercounts federal employees and graduates who move to non-participating states. Cell suppression for small cohorts. MA and NY have shorter time series than CT.</p>
     </div>
     <div class="data-card">
       <span class="data-card-icon">ACS</span>
       <h3>American Community Survey</h3>
       <p>The Census Bureau's primary household survey. We use 2022 one-year estimates for state-level degree attainment (S1501) and labor force participation by education level (S2301) for CT, MA, and NY. Five-year estimates are used for county-level analysis to avoid suppression of small-county cells. This provides the degree-share variable central to Research Question 2.</p>
-      <p class="limitation">⚠ One-year ACS suppresses cells coded as −888,888,888 — affects 25–29 age group and several PUMA observations. Cross-sectional; cannot track individuals over time.</p>
+      <p class="limitation">⚠ One-year ACS suppresses cells coded as −888,888,888 affects 25–29 age group and several PUMA observations. Cross-sectional; cannot track individuals over time.</p>
     </div>
     <div class="data-card">
       <span class="data-card-icon">QCEW</span>
       <h3>Quarterly Census of Employment and Wages</h3>
       <p>BLS program covering nearly all U.S. employers. We pull 2022 annual averages for all 8 Connecticut counties at aggregate level code 70 (all ownerships, all industries). Average weekly wages serve as the outcome variable in the county-level spillover analysis for Research Question 2.</p>
-      <p class="limitation">⚠ Captures economy-wide wages regardless of workers' education level — not specifically non-degree workers. Suppresses cells that would identify individual employers in small counties.</p>
+      <p class="limitation">⚠ Captures economy-wide wages regardless of workers' education level, not specifically non-degree workers. Suppresses cells that would identify individual employers in small counties.</p>
     </div>
   </div>
 </section>
@@ -414,28 +411,28 @@
 <section id="methods">
   <p class="section-tag">03. methods</p>
   <h2>How we answered the questions</h2>
-  <p class="section-desc">All processing in Python (pandas), organized across three sequentially numbered notebooks: <code style="font-family:'IBM Plex Mono',monospace;font-size:0.85rem;color:var(--accent);background:rgba(240,165,0,0.07);padding:1px 5px;border-radius:2px;">01_data_pull</code> → <code style="font-family:'IBM Plex Mono',monospace;font-size:0.85rem;color:var(--accent);background:rgba(240,165,0,0.07);padding:1px 5px;border-radius:2px;">02_clean</code> → <code style="font-family:'IBM Plex Mono',monospace;font-size:0.85rem;color:var(--accent);background:rgba(240,165,0,0.07);padding:1px 5px;border-radius:2px;">03_analysis</code>. Each notebook corresponds to a single defined task. The two research questions required different analytical approaches — one using longitudinal flow data, one using a cross-sectional regression.</p>
+  <p class="section-desc">All processing in Python (pandas), organized across three sequentially numbered notebooks: <code style="font-family:'IBM Plex Mono',monospace;font-size:0.85rem;color:var(--accent);background:rgba(240,165,0,0.07);padding:1px 5px;border-radius:2px;">01_data_pull</code> → <code style="font-family:'IBM Plex Mono',monospace;font-size:0.85rem;color:var(--accent);background:rgba(240,165,0,0.07);padding:1px 5px;border-radius:2px;">02_clean</code> → <code style="font-family:'IBM Plex Mono',monospace;font-size:0.85rem;color:var(--accent);background:rgba(240,165,0,0.07);padding:1px 5px;border-radius:2px;">03_analysis</code>. Each notebook corresponds to a single defined task. The two research questions required different analytical approaches one using longitudinal flow data, one using a cross-sectional regression.</p>
 
   <div class="method-steps">
     <div class="method-step">
       <div class="step-num">01</div>
       <div class="step-content">
-        <h3>Graduate retention rate — Research Question 1</h3>
-        <p>From the PSEO flows file, we compute <code>r_t = grads_emp_instate_t / grads_emp_t</code> for t ∈ {1, 5, 10} years for CT, MA, and NY. This directly measures the share of employed graduates working in their home state at each time horizon — a more granular measure of labor flow than prior work using decennial Census data. A declining retention rate over time is consistent with graduates using Connecticut as a stepping stone before migrating to larger metro areas.</p>
+        <h3>Graduate retention rate Research Question 1</h3>
+        <p>From the PSEO flows file, we compute <code>r_t = grads_emp_instate_t / grads_emp_t</code> for t ∈ {1, 5, 10} years for CT, MA, and NY. This directly measures the share of employed graduates working in their home state at each time horizon, a more granular measure of labor flow than prior work using decennial Census data. A declining retention rate over time is consistent with graduates using Connecticut as a stepping stone before migrating to larger metro areas.</p>
       </div>
     </div>
     <div class="method-step">
       <div class="step-num">02</div>
       <div class="step-content">
-        <h3>County-level OLS regression — Research Question 2</h3>
+        <h3>County-level OLS regression Research Question 2</h3>
         <p>We perform an inner join on county name (exact string match) merging QCEW average weekly wages with ACS five-year college-degree share estimates for all 8 CT counties. We then estimate <code>wage_c = α + β · DegreeShare_c + ε</code> via OLS. The slope β captures the correlation between local degree concentration and economy-wide wages. All 8 counties match successfully with no missing values post-merge.</p>
       </div>
     </div>
     <div class="method-step">
       <div class="step-num">03</div>
       <div class="step-content">
-        <h3>Causal identification — what this analysis can and cannot claim</h3>
-        <p>Neither analysis supports causal claims. The retention rate comparison is descriptive — it documents a gap but cannot explain why graduates leave. The county OLS does not control for confounders like proximity to NYC, industry mix, or population density. With n = 8 counties the model is substantially underpowered. Causal identification of the spillover effect would require an instrument for degree concentration or a quasi-experimental design; no such strategy is available in this cross-sectional data.</p>
+        <h3>Causal identification what this analysis can and cannot claim</h3>
+        <p>Neither analysis supports causal claims. The retention rate comparison is descriptive it documents a gap but cannot explain why graduates leave. The county OLS does not control for confounders like proximity to NYC, industry mix, or population density. With n = 8 counties the model is substantially underpowered. Causal identification of the spillover effect would require an instrument for degree concentration or a quasi-experimental design; no such strategy is available in this cross-sectional data.</p>
       </div>
     </div>
   </div>
@@ -448,8 +445,8 @@
 
   <div class="fig-block">
     <p class="fig-label">Figure 1 &nbsp;·&nbsp; ACS 2022</p>
-    <p class="fig-title">Degree attainment by age group — CT, MA, NY</p>
-    <p class="fig-finding">CT and MA show nearly identical attainment profiles across all age groups, while NY lags in younger cohorts — likely reflecting the composition effects of NYC's large immigrant population. The <strong>45–54 peak</strong> is consistent across all three states, reflecting the cohort that benefited from the 1980s–90s expansion of higher education. The 25–29 group is suppressed in ACS one-year estimates for all three states and shows as missing.</p>
+    <p class="fig-title">Degree attainment by age group CT, MA, NY</p>
+    <p class="fig-finding">CT and MA show nearly identical attainment profiles across all age groups, while NY lags in younger cohorts likely reflecting the composition effects of NYC's large immigrant population. The <strong>45–54 peak</strong> is consistent across all three states, reflecting the cohort that benefited from the 1980s–90s expansion of higher education. The 25–29 group is suppressed in ACS one-year estimates for all three states and shows as missing.</p>
     <img class="fig-img" src="https://raw.githubusercontent.com/randyliu078-bit/qss20-final-project/main/output/fig1_degree_attainment.png" alt="Degree attainment by age group for CT, MA, NY" />
     <p class="fig-caption">Source: ACS 2022 one-year estimates, Subject Table S1501. 25–29 age group suppressed due to small sample size.</p>
   </div>
@@ -464,31 +461,31 @@
     <div class="fig-block" style="margin-bottom:0">
       <p class="fig-label">Figure 3 &nbsp;·&nbsp; ACS 2022</p>
       <p class="fig-title">Labor force participation by education level</p>
-      <p class="fig-finding">LFP rises monotonically with education in all three states — a pattern consistent with human capital theory. CT and MA track closely at every education level. Notably, CT outperforms NY for workers without a high school diploma (36.5% vs. 27.3%), suggesting a tighter low-skill labor market that may reflect the relative absence of large urban informal economies.</p>
+      <p class="fig-finding">LFP rises monotonically with education in all three states a pattern consistent with human capital theory. CT and MA track closely at every education level. Notably, CT outperforms NY for workers without a high school diploma (36.5% vs. 27.3%), suggesting a tighter low-skill labor market that may reflect the relative absence of large urban informal economies.</p>
       <img class="fig-img" src="https://raw.githubusercontent.com/randyliu078-bit/qss20-final-project/main/output/fig3_lfp_by_education.png" alt="LFP by education level" />
     </div>
   </div>
 
   <div class="finding-callout">
-    <p><strong>Key finding — Research Question 1:</strong> CT retains only <strong>68.3%</strong> of bachelor's graduates at one year — compared to 79.6% for MA and 85.2% for NY. Critically, the gap <em>widens</em> at 5 and 10 years, suggesting this is not just new graduates exploring options but a structural pattern of mid-career migration toward Boston and NYC as careers develop.</p>
+    <p><strong>Key finding, Research Question 1:</strong> CT retains only <strong>68.3%</strong> of bachelor's graduates at one year compared to 79.6% for MA and 85.2% for NY. Critically, the gap <em>widens</em> at 5 and 10 years, suggesting this is not just new graduates exploring options but a structural pattern of mid-career migration toward Boston and NYC as careers develop.</p>
   </div>
 
   <div class="fig-block">
     <p class="fig-label">Figure 4 &nbsp;·&nbsp; PSEO flows file 2024 &nbsp;·&nbsp; Central finding</p>
     <p class="fig-title">Graduate retention rates at 1, 5, and 10 years post-graduation</p>
-    <p class="fig-finding">This is the central figure of the analysis. At every time horizon CT retains the smallest share of its graduates. The three-bar cluster pattern reveals that MA and NY both show modest decline from year 1 to year 10, while <strong>CT's decline is steeper</strong> — the retention gap between CT and NY grows from 17 percentage points at year 1 to 14 points at year 10, with the absolute CT rate falling from 68% to 60%.</p>
+    <p class="fig-finding">This is the central figure of the analysis. At every time horizon CT retains the smallest share of its graduates. The three-bar cluster pattern reveals that MA and NY both show modest decline from year 1 to year 10, while <strong>CT's decline is steeper</strong> the retention gap between CT and NY grows from 17 percentage points at year 1 to 14 points at year 10, with the absolute CT rate falling from 68% to 60%.</p>
     <img class="fig-img" src="https://raw.githubusercontent.com/randyliu078-bit/qss20-final-project/main/output/fig5_retention_rates.png" alt="Graduate retention rates" />
     <p class="fig-caption">CT retains 68% at 1 year vs. 80% (MA) and 85% (NY). Gap widens at 5 and 10 years. Source: PSEO flows file, R2024Q4.</p>
   </div>
 
   <div class="finding-callout warn">
-    <p><strong>Key finding — Research Question 2:</strong> A 1 percentage point increase in county college-degree share is associated with <strong>$32 higher average weekly wages</strong> (β = 32.27, R² = 0.63, p = 0.018). <span class="corr-badge">correlational</span> This is consistent with Winters (2013)'s human capital externality hypothesis. However, Fairfield County's proximity to NYC is a likely confounder. When restricted to manufacturing wages only, the relationship disappears (R² = 0.16, p = 0.33), suggesting the spillover operates through service-sector employment rather than production-floor knowledge transfers.</p>
+    <p><strong>Key finding, Research Question 2:</strong> A 1 percentage point increase in county college-degree share is associated with <strong>$32 higher average weekly wages</strong> (β = 32.27, R² = 0.63, p = 0.018). <span class="corr-badge">correlational</span> This is consistent with Winters (2013)'s human capital externality hypothesis. However, Fairfield County's proximity to NYC is a likely confounder. When restricted to manufacturing wages only, the relationship disappears (R² = 0.16, p = 0.33), suggesting the spillover operates through service-sector employment rather than production-floor knowledge transfers.</p>
   </div>
 
   <div class="fig-block">
     <p class="fig-label">Figure 5 &nbsp;·&nbsp; QCEW + ACS 2022 &nbsp;·&nbsp; n = 8 counties</p>
-    <p class="fig-title">College-degree concentration vs. average weekly wages — CT counties</p>
-    <p class="fig-finding">Fairfield County sits at the top right — 51.2% degree share and $2,015 average weekly wage — while Windham sits at the bottom left at 24.3% and $1,027. The regression line fits well overall (R² = 0.63) but Fairfield is a clear outlier whose NYC-adjacent location independently inflates both variables. The relationship is real but the mechanism is unidentified from this data alone.</p>
+    <p class="fig-title">College-degree concentration vs. average weekly wages CT counties</p>
+    <p class="fig-finding">Fairfield County sits at the top right 51.2% degree share and $2,015 average weekly wage while Windham sits at the bottom left at 24.3% and $1,027. The regression line fits well overall (R² = 0.63) but Fairfield is a clear outlier whose NYC-adjacent location independently inflates both variables. The relationship is real but the mechanism is unidentified from this data alone.</p>
     <img class="fig-img" src="https://raw.githubusercontent.com/randyliu078-bit/qss20-final-project/main/output/fig7_county_wages_scatter.png" alt="County wages scatter" />
     <p class="fig-caption">Higher degree-share counties are associated with higher wages. Relationship is correlational; Fairfield County (top right) is a likely NYC-proximity outlier. Source: ACS 5-year 2022; QCEW 2022 annual.</p>
   </div>
@@ -497,15 +494,15 @@
 <section id="takeaway">
   <p class="section-tag">05. takeaway</p>
   <h2>What this means for Connecticut</h2>
-  <p class="section-desc">Two findings, clearly scoped — one strong and well-identified, one suggestive and requiring further work. Together they paint a picture of a state that produces college-educated labor it struggles to retain, while the graduates who do stay appear to generate positive wage effects for the broader workforce.</p>
+  <p class="section-desc">Two findings, clearly scoped one strong and well-identified, one suggestive and requiring further work. Together they paint a picture of a state that produces college-educated labor it struggles to retain, while the graduates who do stay appear to generate positive wage effects for the broader workforce.</p>
 
   <div class="takeaway-grid">
     <div class="takeaway-card">
-      <h3>Research Question 1 — Graduate retention</h3>
-      <p>Connecticut retains substantially fewer of its bachelor's graduates than MA or NY at every time horizon, and the gap grows over a decade. Using PSEO flow data unavailable to Bound et al. (2004), this analysis provides direct evidence that CT graduates disproportionately migrate to Boston and NYC as their careers develop — not just immediately after graduation. This represents a persistent structural challenge for Connecticut's workforce policy and educational investment calculus.</p>
+      <h3>Research Question 1 Graduate retention</h3>
+      <p>Connecticut retains substantially fewer of its bachelor's graduates than MA or NY at every time horizon, and the gap grows over a decade. Using PSEO flow data unavailable to Bound et al. (2004), this analysis provides direct evidence that CT graduates disproportionately migrate to Boston and NYC as their careers develop not just immediately after graduation. This represents a persistent structural challenge for Connecticut's workforce policy and educational investment calculus.</p>
     </div>
     <div class="takeaway-card">
-      <h3>Research Question 2 — Spillover wages</h3>
+      <h3>Research Question 2 Spillover wages</h3>
       <p>County-level evidence is consistent with Winters (2013): counties with higher college-degree concentration are associated with higher wages across all workers. The $32 per percentage point wage gain is economically meaningful, but the analysis is limited by n = 8 observations and the Fairfield County outlier. The effect disappears entirely for manufacturing wages, pointing to service-sector knowledge spillovers as the more likely mechanism than direct production-floor transfers.</p>
     </div>
     <div class="takeaway-card">
@@ -514,7 +511,7 @@
     </div>
     <div class="takeaway-card">
       <h3>Future work</h3>
-      <p>Individual-level ACS microdata with metropolitan-area fixed effects would better isolate the human capital externality mechanism. Extending the PSEO retention analysis to specific industries — particularly aerospace, defense, and financial services, which define CT's regional economy — would reveal which sectors are most exposed to graduate outmigration and whether targeted workforce or tax policy could meaningfully change the retention trajectory.</p>
+      <p>Individual-level ACS microdata with metropolitan-area fixed effects would better isolate the human capital externality mechanism. Extending the PSEO retention analysis to specific industries particularly aerospace, defense, and financial services, which define CT's regional economy would reveal which sectors are most exposed to graduate outmigration and whether targeted workforce or tax policy could meaningfully change the retention trajectory.</p>
     </div>
   </div>
 </section>
