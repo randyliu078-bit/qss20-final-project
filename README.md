@@ -2,6 +2,9 @@
 **Author:** Randy Liu  
 **Course:** QSS 20, Dartmouth College, Spring 2026
 
+## Live Site
+https://randyliu078-bit.github.io/qss20-final-project/
+
 ## Project Summary
 This project builds a merged dataset from three federal sources. The first is the 
 LEHD Post-Secondary Employment Outcomes (PSEO), which tracks earnings and employment 
